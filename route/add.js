@@ -6,9 +6,14 @@ let app=express.Router()
 app.post('/',async(req,res)=>{
   if (0<left) {
     try {
-let data=await Add.create(req.body)
+let data=await Add.findOne({name:req.body.name})
+if (data) {
+  res.status(500).send({msg:'you already registered'})
+}else{
+ let data=await Add.create(req.body)
 left=left-1
 res.status(201).send({left})
+}
     } catch (e) {
 res.status(500).send({msg:'somethig is worng'})
     }
@@ -26,8 +31,14 @@ app.get('/gote/all/user/for/chake',async(req,res)=>{
   }
 })
 //left
-app.get('/',async(req,res)=>{
+app.get('/',(req,res)=>{
   res.send({left})
 })
-//home
+//add left
+app.post('/add/left/user',(req,res)=>{
+  let user=req.body.left
+  left=user+left
+  console.log(typeof user)
+  res.send({left})
+})
 export default app

@@ -3,7 +3,8 @@ import mongoose from'mongoose'
 let PreAdd=mongoose.Schema({
   name:{
     type:String,
-    required:true
+    required:true,
+    unique:true
   },phone:{
     type:Number,
     required:true
@@ -15,7 +16,7 @@ let PreAdd=mongoose.Schema({
   },style:{
     type:String,
     required:true,
-    enum:['Karate','selfDefence','Boxing','Kickboxing']
+    enum:['Karate','selfDefence','Boxing','Kickboxing','All']
   }
 },{
   timestamps:true
