@@ -3,7 +3,7 @@ import cors from'cors'
 import Add from'./route/add.js'
 import Mongodb from'./db.js'
 //app config
-let port=process.env.port || 8080
+let port=process.env.PORT || 8080
 let app=express()
 Mongodb()
 //middleware
