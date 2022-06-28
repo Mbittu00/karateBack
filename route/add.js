@@ -26,7 +26,8 @@ app.get('/gote/all/user/for/chake',async(req,res)=>{
   }
 })
 //left
-app.get('/left',async(req,res)=>{
+app.get('/',async(req,res)=>{
   res.send({left})
 })
+//home
 export default app
