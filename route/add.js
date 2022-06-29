@@ -31,8 +31,11 @@ app.get('/gote/all/user/for/chake',async(req,res)=>{
   }
 })
 //left
-app.get('/',(req,res)=>{
-  res.send({left})
+app.get('/',async(req,res)=>{
+try {
+let data=await Add.find({})
+res.send({left:10-data.length})
+} catch (e) {} 
 })
 //add left
 app.post('/add/left/user',(req,res)=>{
